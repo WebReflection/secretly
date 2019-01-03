@@ -13,9 +13,10 @@ const wm = new WeakMap;
 module.exports = class Secretly {
 
   constructor(password, salt = process.env.ENCRYPTION_SALT || aes) {
-    if (!password)
+    const pwd = $(password || '');
+    if (!pwd.length)
       throw `[${this.constructor.name}] invalid password`;
-    wm.set(this, crypto.pbkdf2Sync($(password), salt, 8192, 32, digest));
+    wm.set(this, crypto.pbkdf2Sync(pwd, salt, 8192, 32, digest));
   }
 
   decrypt(buffer) {
