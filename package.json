@@ -1,6 +1,6 @@
 {
   "name": "secretly",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A basic class to encrypt and decrypt",
   "main": "index.js",
   "scripts": {
