@@ -4,6 +4,7 @@
   "description": "A basic class to encrypt and decrypt",
   "main": "index.js",
   "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test": "istanbul cover test.js"
   },
   "keywords": [
