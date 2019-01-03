@@ -18,5 +18,14 @@
   "devDependencies": {
     "coveralls": "^3.0.2",
     "istanbul": "^0.4.5"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebReflection/secretly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WebReflection/secretly/issues"
+  },
+  "homepage": "https://github.com/WebReflection/secretly#readme"
 }
