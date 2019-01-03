@@ -7,8 +7,14 @@ A basic class to encrypt and decrypt
 ```js
 const Secretly = require('secretly');
 
-// optionally with a salt value as second argument
-const pvt = new Secretly('my-password');
+const pvt = new Secretly(
+  'my-password',
+  // optional second argument as salt
+  process.env.ENCRYPTION_SALT,
+  // optional third argument to avoid
+  // using a random iv (when same output per input is needed)
+  false
+);
 
 const encrypted = pvt.encrypt('any text');
 const decrypted = pvt.decrypt(encrypted);

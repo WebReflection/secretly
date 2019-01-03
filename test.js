@@ -33,3 +33,16 @@ try {
 } catch(e) {
   console.assert(true, e.message);
 }
+
+const predictable = new Secretly('no-shenaigans', 'salt', false);
+
+console.assert(
+  predictable.encrypt(IN) === predictable.encrypt(IN),
+  'encrypted output is always the same'
+);
+
+console.assert(
+  predictable.decrypt(predictable.encrypt(IN)) === IN,
+  'decrypted output still works'
+);
+
