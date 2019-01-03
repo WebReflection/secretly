@@ -1,0 +1,21 @@
+{
+  "name": "secretly",
+  "version": "0.0.0",
+  "description": "A basic class to encrypt and decrypt",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover test.js"
+  },
+  "keywords": [
+    "encrypt",
+    "decrypt",
+    "simple",
+    "utility"
+  ],
+  "author": "Andrea Giammarchi",
+  "license": "ISC",
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "istanbul": "^0.4.5"
+  }
+}
