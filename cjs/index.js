@@ -1,6 +1,5 @@
-"use strict";
-
-const crypto = require('crypto');
+'use strict';
+const crypto = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('crypto'));
 
 const aes = 'aes-256-cbc';
 const digest = 'sha256';
@@ -10,7 +9,7 @@ const {concat, from} = Buffer;
 
 const wm = new WeakMap;
 
-module.exports = class Secretly {
+module.exports = class {
 
   constructor(
     password,

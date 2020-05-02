@@ -1,4 +1,4 @@
-const Secretly = require('./index.js');
+const Secretly = require('../cjs');
 
 const safe = new Secretly('no-shenaigans');
 
@@ -45,4 +45,3 @@ console.assert(
   predictable.decrypt(predictable.encrypt(IN)) === IN,
   'decrypted output still works'
 );
-

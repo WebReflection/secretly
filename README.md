@@ -5,7 +5,8 @@
 A basic class to encrypt and decrypt
 
 ```js
-const Secretly = require('secretly');
+import Secretly from 'secretly';
+// or const Secretly = require('secretly');
 
 const pvt = new Secretly(
   'my-password',

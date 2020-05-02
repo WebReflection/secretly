@@ -2,10 +2,18 @@
   "name": "secretly",
   "version": "0.2.0",
   "description": "A basic class to encrypt and decrypt",
-  "main": "index.js",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "type": "module",
+  "exports": {
+    "import": "./esm/index.js",
+    "default": "./cjs/index.js"
+  },
   "scripts": {
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "test": "istanbul cover test.js"
+    "build": "npm run cjs && npm run test",
+    "cjs": "ascjs --no-default esm cjs",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc node test/index.js"
   },
   "keywords": [
     "encrypt",
@@ -16,10 +24,10 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
-    "coveralls": "^3.0.2",
-    "istanbul": "^0.4.5"
+    "ascjs": "^4.0.0",
+    "coveralls": "^3.1.0",
+    "nyc": "^15.0.1"
   },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebReflection/secretly.git"
