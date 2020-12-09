@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.com/WebReflection/secretly.svg?branch=master)](https://travis-ci.com/WebReflection/secretly) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/secretly/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/secretly?branch=master)
 
+<sup>**Social Media Photo by [Felix Hanspach](https://unsplash.com/@fhanspach) on [Unsplash](https://unsplash.com/)**</sup>
+
+
 A basic class to encrypt and decrypt.
 
 ```js
