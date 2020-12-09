@@ -30,20 +30,21 @@ const decrypted = pvt.decrypt(encrypted);
 It's the same class with the following differences:
 
   * both `encrypt` and `decrypt` are *asynchronous*
-  * the `salt` parameter is by default the `location.href`
+  * the `salt` parameter is by default the `location.href` and it's **not optional**, meaning empty salts will be rejected
   * there is a static helper to make salts less greedy, which is `Secretly.PATH`, returning the current domain + path without search and hashes, like `location.href` would do
   * the module is *not compatible* with browsers that don't support *ES2015* and it won't be published as such
 
 ```js
 // Web
-import Secretly from '//unpkg.com/secretly/web?module';
+import Secretly from 'https://unpkg.com/secretly/esm/web.js';
 
 const pvt = new Secretly(
   'my-password',
-  // optional second argument as salt
+  // second argument as salt (defaults to the location.href)
   Secretly.PATH,
   // optional third argument to avoid
-  // using a random iv (when same output per input is needed)
+  // using a random iv when same output per input is needed
+  // **across sessions**
   false
 );
 
