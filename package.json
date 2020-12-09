@@ -25,7 +25,8 @@
     "encrypt",
     "decrypt",
     "simple",
-    "utility"
+    "utility",
+    "Web"
   ],
   "author": "Andrea Giammarchi",
   "license": "ISC",
