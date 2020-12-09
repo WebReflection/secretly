@@ -54,7 +54,7 @@ const asHEX = i => slice('0' + toString(i, 16), -2);
 
 // big thanks to Webbjocke article for this bit of the Web Crypto API
 // https://webbjocke.com/javascript-web-encryption-and-hashing-with-the-crypto-api/
-const genEncryptionKey = async (password, salt) => {
+const createKey = async (password, salt) => {
   const name = 'PBKDF2';
   const derived = {name: 'AES-GCM', length: 256};
   const encoded = encode(new TextEncoder, password);
@@ -100,7 +100,7 @@ class Secretly {
       throw new TypeError(`invalid password`);
     const buffer = new Uint8Array(16);
     set(wm, this, {
-      key: genEncryptionKey(pwd, salt),
+      key: createKey(pwd, salt),
       info: {
         name: 'AES-GCM',
         length: 256,
