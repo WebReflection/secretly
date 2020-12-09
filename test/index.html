@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module">
+    import Secretly from '../esm/web.js';
+    const pvt = new Secretly('my-password');
+    const secret = 'Secret text 🦄';
+    pvt.encrypt(secret).then(encrypted => {
+      console.log(encrypted);
+      pvt.decrypt(encrypted).then(decrypted => {
+        console.log(decrypted);
+        if (secret !== decrypted)
+          alert('Error!');
+        else
+          document.body.textContent = 'it works 🥳';
+      });
+    });
+  </script>
+</head>
+</html>
