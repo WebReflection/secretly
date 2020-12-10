@@ -7,47 +7,29 @@
 
 A basic class to encrypt and decrypt.
 
+## Usage
+
 ```js
 // NodeJS
 import Secretly from 'secretly';
 // or const Secretly = require('secretly');
 
-const pvt = new Secretly(
-  'my-password',
-  // optional second argument as salt
-  process.env.ENCRYPTION_SALT,
-  // optional third argument to avoid
-  // using a random iv (when same output per input is needed)
-  false
-);
-
-const encrypted = pvt.encrypt('any text');
-const decrypted = pvt.decrypt(encrypted);
-```
-
-### Secretly Web
-
-It's the same class with the following differences:
-
-  * both `encrypt` and `decrypt` are *asynchronous*
-  * the `salt` parameter is by default the `location.href` and it's **not optional**, meaning empty salts will be rejected
-  * there is a static helper to make salts less greedy, which is `Secretly.PATH`, returning the current domain + path without search and hashes, like `location.href` would do
-  * the module is *not compatible* with browsers that don't support *ES2015* and it won't be published as such
-
-```js
 // Web
-import Secretly from 'https://unpkg.com/secretly/esm/web.js';
+// import Secretly from 'secretly/web';
+// or import Secretly from 'https://unpkg.com/secretly/esm/web.js';
 
-const pvt = new Secretly(
-  'my-password',
-  // second argument as salt (defaults to the location.href)
-  Secretly.PATH,
-  // optional third argument to avoid
-  // using a random iv when same output per input is needed
-  // **across sessions**
-  false
-);
+const pvt = new Secretly(secret, Secretly.PATH);
 
 const encrypted = await pvt.encrypt('any text');
 const decrypted = await pvt.decrypt(encrypted);
 ```
+
+## API
+
+  * `constructor(password, salt = Secretly.PATH, random = true)` where both `password` and `salt` cannot be empty strings. The `Secretly.PATH` is the `process.cwd()` in *NodeJS*, and the current location up to the last `/` in the browser. The third `random` is used to have *different* results across sessions, while if forced to `false` there won't be randomness in the derived *iv key*, so while encrypted content will be reusable across different sessions, assuming also the `salt` is the same, it might be less secure.
+  * `async encrypt(plain_text) => encrypted_hex`
+  * `async decrypt(encrypted_hex) => plain_text`
+
+### Breaking V2
+
+After bringing this module to the *Web*, and discovering that *NodeJS* has a `crypto.webcrypto` that works the same, I've decided to make this module identical for both *Web* and *NodeJS*, making it portable client/server.

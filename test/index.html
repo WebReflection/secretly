@@ -17,6 +17,12 @@
           document.body.textContent = 'it works 🥳';
       });
     });
+
+    self.module = {};
+    import('./test.js').then(() => {
+      self.module.exports(Secretly);
+    });
+
   </script>
 </head>
 </html>
