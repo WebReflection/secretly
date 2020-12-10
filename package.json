@@ -31,9 +31,9 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
-    "ascjs": "^4.0.0",
+    "ascjs": "^4.0.3",
     "coveralls": "^3.1.0",
-    "nyc": "^15.0.1"
+    "nyc": "^15.1.0"
   },
   "repository": {
     "type": "git",
@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/WebReflection/secretly/issues"
   },
-  "homepage": "https://github.com/WebReflection/secretly#readme"
+  "homepage": "https://github.com/WebReflection/secretly#readme",
+  "dependencies": {
+    "node-webcrypto-ossl": "^2.1.2"
+  }
 }

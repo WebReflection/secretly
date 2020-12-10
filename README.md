@@ -32,7 +32,7 @@ const decrypted = await pvt.decrypt(encrypted);
 
 ## Compatibility
 
-This module requires *ES2015* compatible browsers on the client side, and *NodeJS* 15+ on the backend.
+This module requires *ES2015* compatible browsers on the client side, and *NodeJS* 15+ on the backend for the native `crypto.webcrypto` API, which is polyfilled via [node-webcrypto-ossl](https://www.npmjs.com/package/node-webcrypto-ossl).
 
 If interested in using the synchronous, *NodeJS* only version of this module, which produces different results but in terms of API it works identically, you can use `secretly@1` instead, which has been successfully tested, and used, from *NodeJS* version *8* up to version *15*.
 
