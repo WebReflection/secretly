@@ -30,6 +30,12 @@ const decrypted = await pvt.decrypt(encrypted);
   * `async encrypt(plain_text) => encrypted_hex`
   * `async decrypt(encrypted_hex) => plain_text`
 
+## Compatibility
+
+This module requires *ES2015* compatible browsers on the client side, and *NodeJS* 15+ on the backend.
+
+If interested in using the synchronous, *NodeJS* only version of this module, which produces different results but in terms of API it works identically, you can use `secretly@1` instead, which has been successfully tested, and used, from *NodeJS* version *8* up to version *15*.
+
 ### Breaking V2
 
 After bringing this module to the *Web*, and discovering that *NodeJS* has a `crypto.webcrypto` that works the same, I've decided to make this module identical for both *Web* and *NodeJS*, making it portable client/server.
