@@ -83,9 +83,9 @@ const securedClass = (crypto, PATH, asHex, fromHex) => {
         password = salt = '';
         throw new TypeError(`invalid password or salt`);
       }
-      const buffer = new Uint8Array(16);
+      const buffer = new $Uint8Array(16);
       set(this, {
-        key: createKey(String(password), String(salt)),
+        key: createKey($String(password), $String(salt)),
         info: {
           name: 'AES-GCM',
           length: 256,
